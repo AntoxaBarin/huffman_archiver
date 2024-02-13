@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -O2 -Wall -Werror -Wextra  -std=c++17 -Iinclude
 LDFLAGS =
 
-EXE = hw-02_huffman
+EXE = huffman_archiver
 TEST = huffman_test
 SRCDIR = src
 OBJDIR = obj

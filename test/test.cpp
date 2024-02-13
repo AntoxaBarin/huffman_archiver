@@ -133,7 +133,7 @@ TEST_SUITE("Huffman-encoding test") {
         huffman::huffman_compressor compressor;
         huffman::huffman_decompressor decompressor;
 
-        compressor.compress_file("samples/big_text_to_compress.txt", "samples/binary_buf.bin", tree);
+        compressor.compress_file("samples/big_text_to_compress.txt", "samples/binary_buf.bin");
         decompressor.decompress_file("samples/binary_buf.bin", "samples/big_text_decompressed.txt");
 
         CHECK(compareFiles("samples/big_text_to_compress.txt", "samples/big_text_decompressed.txt") == true);

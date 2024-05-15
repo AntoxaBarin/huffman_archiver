@@ -108,6 +108,8 @@ TEST_SUITE("Huffman-tree test") {
         CHECK(root -> get_frequency() == 100);
         CHECK(root -> get_left_child() == nullptr);
         CHECK(root -> get_right_child() == nullptr);
+
+        tree.destroy_tree(root);
     }
 }
 

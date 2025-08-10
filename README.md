@@ -3,12 +3,14 @@
 
 ### Build archiver
 ```shell
-$ make 
+$ mkdir build && cd build
+$ cmake ..
+$ cmake --build .
 ```
 ### Tests
 [Doctest](https://github.com/doctest/doctest) used for testing.
+To run tests:
 ```shell
-$ make test
 $ ./huffman_test 
 ```
 

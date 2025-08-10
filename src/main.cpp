@@ -1,9 +1,9 @@
-#include "huffman_tree.h"
 #include "encoding.h"
+#include "huffman_tree.h"
 
-#include <iostream>
-#include <fstream>
 #include <cstring>
+#include <fstream>
+#include <iostream>
 #include <stdexcept>
 
 bool is_file_exists(const std::string& filename) {
@@ -34,28 +34,23 @@ int main(int argc, char** argv) {
             for (int i = 1; i < 6; i++) {
                 if (!strcmp(argv[i], "-c")) {
                     mode = argv[i];
-                }
-                else if (!strcmp(argv[i], "-u")) {
+                } else if (!strcmp(argv[i], "-u")) {
                     mode = argv[i];
-                }
-                else if (!strcmp(argv[i], "-f") || !strcmp(argv[i], "--file")) {
+                } else if (!strcmp(argv[i], "-f") || !strcmp(argv[i], "--file")) {
                     input_file = argv[i + 1];
                     i++;
 
                     if (!is_file_exists(input_file)) {
                         throw std::runtime_error("Input file does not exist!");
                     }
-                }
-                else if (!strcmp(argv[i], "-o") || !strcmp(argv[i], "--output")) {
+                } else if (!strcmp(argv[i], "-o") || !strcmp(argv[i], "--output")) {
                     output_file = argv[i + 1];
                     i++;
-                }
-                else {
+                } else {
                     throw std::runtime_error("Incorrect argument!");
                 }
             }
-        }
-        else {
+        } else {
             throw std::runtime_error("Incorrect arguments!");
         }
 
@@ -69,8 +64,7 @@ int main(int argc, char** argv) {
                 return 0;
             }
             compress(input_file, output_file);
-        }
-        else if (mode == "-u") {
+        } else if (mode == "-u") {
             if (!is_file_exists(input_file)) {
                 throw std::runtime_error("Input file doesn't exist!");
             }
@@ -81,8 +75,7 @@ int main(int argc, char** argv) {
             }
             decompress(input_file, output_file);
         }
-    }
-    catch (std::runtime_error const &) {
+    } catch (std::runtime_error const&) {
         std::cout << "Incorrect arguments!" << std::endl;
     }
 

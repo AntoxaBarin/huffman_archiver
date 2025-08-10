@@ -17,7 +17,7 @@ $ ./huffman_test
 ### Usage:
 There are several flags:
 * `-c` compress text file
-* `-u` uncompress binary file
+* `-d` decompress binary file
 * `-f <path>`, `--file <path>` name of input file
 * `-o <path>`, `--output <path>` name of output file
 
@@ -27,7 +27,7 @@ $ ./huffman_archiver -c -f toCompress.txt -o compressed.bin
 ```
 To decode binary file
 ```shell
-$ ./huffman_archiver -u -f compressed.bin -o decompressed.bin
+$ ./huffman_archiver -d -f compressed.bin -o decompressed.bin
 ```
 
 Example:

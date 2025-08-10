@@ -26,7 +26,7 @@ private:
 
 class huffman_tree {
 public:
-    void build_tree();
+    void build();
     void build_table();
     void build_code(huffman_tree_node* node, std::string code);
     void build_frequency_table(const std::string& filename);
@@ -40,7 +40,7 @@ public:
     void set_alphabet_power(const int value);
     void add_symbol(const char symbol, const int frequency);
 
-    void destroy_tree(const huffman_tree_node* start_node);
+    void destroy(const huffman_tree_node* start_node);
 
 private:
     huffman_tree_node* root_;

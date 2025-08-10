@@ -42,7 +42,7 @@ void huffman_tree::build_frequency_table(const std::string& filename) {
     alphabet_power_ = chars_frequency_.size();
 }
 
-void huffman_tree::build_tree() {
+void huffman_tree::build() {
     std::map<char, int>::iterator iter = chars_frequency_.begin();
     for (; iter != chars_frequency_.end(); ++iter) {
         huffman_tree_node* node = new huffman_tree_node(iter->first, iter->second);
@@ -97,13 +97,13 @@ void huffman_tree::build_code(huffman_tree_node* node, std::string code) {
     build_code(node->get_right_child(), code + "1");
 }
 
-void huffman_tree::destroy_tree(const huffman_tree_node* start_node) {
+void huffman_tree::destroy(const huffman_tree_node* start_node) {
     if (start_node == nullptr) {
         return;
     }
 
-    destroy_tree(start_node->get_left_child());
-    destroy_tree(start_node->get_right_child());
+    destroy(start_node->get_left_child());
+    destroy(start_node->get_right_child());
 
     delete start_node;
     start_node = nullptr;

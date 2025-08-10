@@ -135,13 +135,13 @@ void huffman_compressor::compress_file(const std::string filename, const std::st
     huffman_tree tree;
 
     tree.build_frequency_table(filename);
-    tree.build_tree();
+    tree.build();
     tree.build_table();
 
     bin_out.write_frequency_table(output, tree);
     bin_out.write_bits(output, filename, tree);
 
-    tree.destroy_tree(tree.get_root());
+    tree.destroy(tree.get_root());
 
     bin_out.print_sizes("compress");
 }
@@ -152,11 +152,11 @@ void huffman_decompressor::decompress_file(const std::string input_file, const s
     huffman_tree tree;
 
     bin_in.read_frequency_table(input, tree);
-    tree.build_tree();
+    tree.build();
     tree.build_table();
     bin_in.read_bits(input, tree, output_file);
 
-    tree.destroy_tree(tree.get_root());
+    tree.destroy(tree.get_root());
 
     bin_in.print_sizes("decompress");
 }

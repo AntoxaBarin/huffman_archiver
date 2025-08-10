@@ -53,7 +53,7 @@ TEST_SUITE("Huffman-tree test") {
     TEST_CASE("Build code-tree test") {
         huffman::huffman_tree tree;
         tree.build_frequency_table("../samples/frequency_table_test.txt");
-        tree.build_tree();
+        tree.build();
         tree.build_table();
 
         auto code_table = tree.get_table();
@@ -86,13 +86,13 @@ TEST_SUITE("Huffman-tree test") {
         CHECK(left_root_child->get_left_child()->get_symbol() != '\0');
         CHECK(left_root_child->get_left_child()->get_frequency() == 4);
 
-        tree.destroy_tree(tree.get_root());
+        tree.destroy(tree.get_root());
     }
 
     TEST_CASE("One symbol text test") {
         huffman::huffman_tree tree;
         tree.build_frequency_table("../samples/one_symbol_test.txt");
-        tree.build_tree();
+        tree.build();
         tree.build_table();
 
         auto code_table = tree.get_table();
@@ -108,7 +108,7 @@ TEST_SUITE("Huffman-tree test") {
         CHECK(root->get_left_child() == nullptr);
         CHECK(root->get_right_child() == nullptr);
 
-        tree.destroy_tree(root);
+        tree.destroy(root);
     }
 }
 

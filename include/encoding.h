@@ -17,9 +17,9 @@ public:
 
     void print_sizes(std::string mode) const;
 
-    size_t get_not_compressed_file_size() const;
-    size_t get_compressed_file_size() const;
-    size_t get_frequency_table_size() const;
+    [[nodiscard]] size_t get_not_compressed_file_size() const;
+    [[nodiscard]] size_t get_compressed_file_size() const;
+    [[nodiscard]] size_t get_frequency_table_size() const;
 
 private:
     int cur_position_in_byte;

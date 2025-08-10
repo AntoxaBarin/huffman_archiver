@@ -49,7 +49,8 @@ void huffman_tree::build() {
         list_of_nodes_.push_back(node);
     }
 
-    while (list_of_nodes_.size() != 1) {  // connects two nodes into one parent
+    // connects two nodes into one parent
+    while (list_of_nodes_.size() != 1) {
         list_of_nodes_.sort(node_comparing());
         huffman_tree_node* left_child = list_of_nodes_.front();
         list_of_nodes_.pop_front();
